@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U BOJAMA JE RAZLIKA</title>
+  <meta name="description" content="Profesionalno farbanje nameštaja, restauracija i unikatna rešenja. U Bojama je Razlika - vaš stručnjak za MDF, drvo i pločaste materijale.">
+  <meta name="keywords" content="farbanje nameštaja, restauracija, MDF, drvo, unikatni nameštaj, nameštaj po meri">
+  <meta name="author" content="U Bojama je Razlika">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-light: #f3f4f6;
+      --bg-dark: #1f2937;
+      --text-light: #f3f4f6;
+      --text-dark: #1f2937;
+      --accent: #60a5fa;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      transition: all 0.4s ease;
+      background-color: rgb(37, 37, 37);
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5em;
+      color: white;
+      background: #111827;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2000;
+    }
+    header {
+      background: url("sli4.jpg") no-repeat center center/cover;
+      color: white;
+      padding: 120px 20px 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+      position: relative;
+    }
+    header h1 {
+      margin-top: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+
+    }
+    header p {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    nav {
+      background-color: rgb(36, 36, 36);
+      padding: 12px;
+      background: transparent;
+      backdrop-filter: blur(3px);
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: rgb(255, 255, 255);
+          backdrop-filter: blur(10px);
+          background: transparent;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: rgb(61, 61, 61);
+          backdrop-filter: blur(10px);
+          background: transparent;
+    }
+    h2 {
+      color: white
+
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .feature {
+      flex: 1;
+      min-width: 250px;
+      background: rgb(46, 46, 46);
+          backdrop-filter: blur(10px);
+          background: transparent;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff;
+      object-fit: cover;
+      height: 180px;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .gallery-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: rgb(67, 67, 67);
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin: 0 auto 10px auto;
+      transition: background 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .gallery-btn:hover {
+      background: #3b82f6;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: var(--accent);
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: #3b82f6;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .fab-button {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #E1306C;
+      color: white;
+      padding: 18px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 1.6em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1001;
+      transition: background-color 0.3s;
+      border: none;
+      outline: none;
+    }
+    li {
+      margin-bottom: 10px;
+      color: #e3e3e3;
+    }
+    h3 {
+      margin-top: 0;
+      color: white;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #c0c0c0;
+    }
+    blockquote {
+      border-left: 4px solid var(--accent);
+      margin: 20px 0;
+      padding-left: 15px;
+      font-style: italic;
+      color: #d1d1d1;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+    a {
+      color: lightblue;
+    }
+    .form input, .form textarea {
+      background: #3c3c3c;
+      color: #2c2c2c;
+      border: 1px solid #444;
+    }
+    .fab-button:hover {
+      background-color: #c72e62;
+    }
+    @media (max-width: 900px) {
+      .features { flex-direction: column; }
+      .gallery img { max-width: 90vw; height: auto; }
+    }
+    @media (max-width: 600px) {
+      header { padding: 60px 10px 30px 10px; }
+      section { padding: 25px 5px; }
+      .gallery img { max-width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  
+
+  <header>
+    <h1>U Bojama je Razlika</h1>
+    <p>Boje koje pričaju priču vašeg nameštaja</p>
+    <p>
+      <a href="https://www.instagram.com/profesionalno_farbanje" target="_blank" style="color:white;text-decoration:none;">
+        <i class="fab fa-instagram"></i> @profesionalno_farbanje
+      </a>
+    </p>
+  </header>
+
+  <nav>
+    <a href="#usluge">Šta radimo</a>
+    <a href="#zasto">Zašto baš mi</a>
+    <a href="#galerija">Galerija</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#blog">Blog</a>
+  </nav>
+
+  <section id="usluge">
+    <h2>Šta radimo</h2>
+    <div class="features">
+      <div class="feature"><h3>Profesionalno farbanje</h3><p>Farbanje MDF i drugih pločastih materijala poliuretanskim bojama u svim nijansama.</p></div>
+      <div class="feature"><h3>Restauracija</h3><p>Obnavljamo star nameštaj uz očuvanje karaktera i kvaliteta izrade.</p></div>
+      <div class="feature"><h3>Farbanje</h3><p>Koristimo moderne, ekološke boje za osvežen izgled svakog komada.</p></div>
+      <div class="feature"><h3>Unikatna Rešenja</h3><p>Svaki komad je poseban – prilagođen vašem prostoru i ukusu.</p></div>
+    </div>
+  </section>
+
+  <section id="zasto">
+    <h2>Zašto baš mi</h2>
+    <ul>
+      <li>Višegodišnje iskustvo u radu sa drvetom</li>
+      <li>Ručna izrada i posvećenost svakom detalju</li>
+      <li>Zadovoljni klijenti širom Srbije</li>
+    </ul>
+  </section>
+
+  <section id="galerija">
+    <h2>Galerija radova</h2>
+    <div class="gallery">
+      <img src="11.jpg" alt="Pre i posle" loading="lazy">
+      <img src="12.jpg" alt="Kuhinje" loading="lazy">
+      <img src="13.jpg" alt="Restaurirani sto" loading="lazy">
+    </div>
+    <a href="galerjaradova.html" class="gallery-btn">
+      Pogledajte celu galeriju <i class="fas fa-arrow-right"></i>
+    </a>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p><i class="fas fa-phone"></i> <a href="tel:0616115567">061 611 5567</a></p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:ubojamajerazlika@gmail.com">ubojamajerazlika@gmail.com</a></p>
+    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/profesionalno_farbanje" target="_blank">@profesionalno_farbanje</a></p>
+    <form>
+      <input type="text" name="ime" placeholder="Vaše ime" required>
+      <input type="email" name="email" placeholder="Email adresa" required>
+      <textarea name="poruka" rows="5" placeholder="Vaša poruka" required></textarea>
+      <input type="submit" value="Pošalji">
+    </form>
+  </section>
+
+  <section id="cta">
+    <h2>Spremni da osvežite svoj prostor?</h2>
+    <p>Kontaktirajte nas danas i zajedno ćemo pronaći pravo rešenje za vaš nameštaj.</p>
+    <a href="#kontakt" class="gallery-btn" style="margin-top:15px;">Zatražite ponudu</a>
+  </section>
+
+  <section id="recenzije">
+    <h2>Šta naši klijenti kažu</h2>
+    <blockquote>"Oduševljena sam profesionalizmom i preciznošću. Naš stari sto izgleda kao nov!" - Jelena M.</blockquote>
+    <blockquote>"Brza usluga i besprekorna završna obrada. Preporuka svima!" - Marko V.</blockquote>
+    <blockquote>"Usluga na vrhunskom nivou. Boje su postojane i efektne!" - Ivana T.</blockquote>
+  </section>
+
+  <section id="blog">
+    <h2>Naš blog</h2>
+    <article>
+      <h3>Kako izabrati pravu boju za vaš nameštaj?</h3>
+      <p>Boja može potpuno promeniti ambijent. Naučite kako da birate nijanse koje se uklapaju u vaš enterijer.</p>
+    </article>
+    <article>
+      <h3>Restauracija: saveti iz radionice</h3>
+      <p>Praktični saveti i iskustva iz prve ruke – kako spasiti star komad nameštaja.</p>
+    </article>
+    <article>
+      <h3>Trendovi u enterijeru za 2025.</h3>
+      <p>Boje, materijali i stilovi koji dominiraju godinom pred nama.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 U Bojama je Razlika. Sva prava zadržana.</p>
+    <p>
+      <a href="https://www.instagram.com/profesionalno_farbanje" target="_blank" style="color:#fff;text-decoration:none;">
+        <i class="fab fa-instagram"></i> @profesionalno_farbanje
+      </a>
+    </p>
+  </footer>
+
+  <a href="https://www.instagram.com/profesionalno_farbanje" target="_blank" class="fab-button" title="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('section, .feature, .gallery img').forEach(el => {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
